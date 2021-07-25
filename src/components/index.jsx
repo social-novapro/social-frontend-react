@@ -1,0 +1,1 @@
+export { postPage } from './postHome';

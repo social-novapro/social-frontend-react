@@ -7,15 +7,5 @@ export const homePageQuery = gql`
             discordTag
             avatar
         }
-        getMutualGuilds {
-            included {
-                name
-                id
-            }
-            excluded {
-                name
-                id
-            }
-        }
     }
 `;

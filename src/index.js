@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router} from 'react-router-dom'
 import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const link = createHttpLink({
-  uri: 'https://interact-api.novapro.net/graphql',
+  // uri: 'https://interact-api.novapro.net/graphql',
   // uri: 'http://192.168.0.122:5002/graphql',
+  ui: 'http://localhost:5002/',
   credentials: 'include',
 })
 
@@ -19,11 +21,13 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-    </Router>
+    <ChakraProvider>
+      <Router>
+        <ApolloProvider client={client}>
+          <App />
+        </ApolloProvider>
+      </Router>
+    </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

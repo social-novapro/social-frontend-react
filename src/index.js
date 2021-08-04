@@ -6,11 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router} from 'react-router-dom'
 import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { ChakraProvider } from '@chakra-ui/react'
-
+import { mainAPIlink } from './config.json'
 const link = createHttpLink({
   // uri: 'https://interact-api.novapro.net/graphql',
   // uri: 'http://192.168.0.122:5002/graphql',
-  ui: 'http://localhost:5002/',
+  uri: mainAPIlink,
   credentials: 'include',
 })
 

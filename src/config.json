@@ -1,0 +1,6 @@
+{
+    "APIv1_dev" : "http://localhost:5002/v1",
+    "APIv1" : "https://interact-api.novapro.net/v1",
+    "mainAPIlink_dev" : "http://localhost:5002/",
+    "mainAPIlink" : "https://interact-api.novapro.net/"
+}

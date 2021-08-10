@@ -1,7 +1,6 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { postPage } from '../../components/index';
-import getAllPosts from '../../APIv1/get/allPosts'
+import { useState, useEffect } from 'react';
+import getAllPosts from '../../APIv1/get/allPosts';
+import getPostData from '../../APIv1/get/post';
 
 function PostContent(props) {
     console.log(props.testing)
@@ -9,18 +8,54 @@ function PostContent(props) {
 }
 
 export function LandingPage(props) {
-    //const { loading, error, data } = useQuery(menuPageQuery)
-    const allPosts = getAllPosts()
-   
-    
-    async function testing() {
-        const allPosts = await getAllPosts()
-        return allPosts
+    const [token, setToken] = useState();
+
+    useEffect(() => {
+        if (!token) {
+            getToken();
+        }
+    }, []);
+
+    async function getToken() {
+        const response = await getAllPosts()
+        console.log(response)
+        setToken(response);
+    };
+   //return <h1>e</h1>
+
+    console.log(token)
+    // return <h1>e</h1>
+
+
+    var postData = [];
+
+    for (var i = 0; i < token.length; i++){
+        postData.push(
+            <div>
+                <h3>{token[i].content}</h3>
+            </div>
+        );
+
     }
+
+    return(<div>{postData}</div>);
+    
+
+    return (
+        <div>
+            {token.map(function(post) {
+                console.log(post.content)
+                return (
+                    <h1>{post.content}</h1>
+                )
+            }).join(" ")}
+        </div>  
+    );//*/
+
+
     return (
         <div>
             <PostContent 
-                getPosts={testing}
                 name="daniel"/>
             <PostContent 
                 name="tester"/>

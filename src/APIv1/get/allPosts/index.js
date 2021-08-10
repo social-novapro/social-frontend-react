@@ -1,6 +1,6 @@
 import axios from 'axios'
-import config from '../../../config.json'
-const URL = `${config.APIv1}/get/allPosts`
+import {APIv1} from '../../../config.json'
+const URL = `${APIv1}/get/allPosts`
 
 async function getAllPosts() {
     const headers = {

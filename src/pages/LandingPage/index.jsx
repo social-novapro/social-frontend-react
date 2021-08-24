@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import getAllPosts from '../../APIv1/get/allPosts';
 import getPostData from '../../APIv1/get/post';
+import {HomeComponent} from '../../components/'
 
 function PostContent(props) {
     console.log(props.testing)
@@ -8,67 +9,28 @@ function PostContent(props) {
 }
 
 export function LandingPage(props) {
-    const [token, setToken] = useState();
+    console.log("hyelo")
+    const data = await getAllPosts()
+    console.log(data)
+    return "loading"
+/*    const [token, setToken] = useState('');
 
     useEffect(() => {
+        // You need to restrict it at some point
+        // This is just dummy code and should be replaced by actual
         if (!token) {
             getToken();
         }
     }, []);
 
-    async function getToken() {
-        const response = await getAllPosts()
-        console.log(response)
-        setToken(response);
+    const getToken = async () => {
+        const data = await getAllPosts();
+        setToken(data);
     };
-   //return <h1>e</h1>
 
     console.log(token)
-    // return <h1>e</h1>
 
+    return (<HomeComponent posts={token}/>)
+    */
 
-    var postData = [];
-
-    for (var i = 0; i < token.length; i++){
-        postData.push(
-            <div>
-                <h3>{token[i].content}</h3>
-            </div>
-        );
-
-    }
-
-    return(<div>{postData}</div>);
-    
-
-    return (
-        <div>
-            {token.map(function(post) {
-                console.log(post.content)
-                return (
-                    <h1>{post.content}</h1>
-                )
-            }).join(" ")}
-        </div>  
-    );//*/
-
-
-    return (
-        <div>
-            <PostContent 
-                name="daniel"/>
-            <PostContent 
-                name="tester"/>
-            <PostContent 
-                name="admin"/>
-        </div>
-    )
-   /* return (
-        <div>
-            {allPosts.map(function(post) {
-                   console.log(post)
-                   return `<h1>${post.content}</h1>`
-            }).join(" ")}
-        </div>
-    );*/
 }   

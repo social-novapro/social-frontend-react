@@ -9,7 +9,6 @@ async function getAllPosts() {
     };
 
     const allPosts = await axios.get(URL, { headers })
-    return allPosts.data[0].content
     return allPosts.data
 }
 

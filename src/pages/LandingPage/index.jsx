@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import getAllPosts from '../../APIv1/get/allPosts';
 import getPostData from '../../APIv1/get/post';
 import {HomeComponent} from '../../components/'
@@ -9,9 +9,26 @@ function PostContent(props) {
 }
 
 export function LandingPage(props) {
-    console.log("hyelo")
-    const data = await getAllPosts()
-    console.log(data)
+    const [ posts, setPosts ] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+            const request = await getAllPosts();
+            //console.log(request)
+            setPosts(request)
+            return request
+        }
+        fetchData()
+
+    }, [] )
+    
+    console.log(posts)
+
+    return (<HomeComponent posts={posts}/>)
+
+   // console.log("hyelo")
+    //const data = await getAllPosts()
+  //  console.log(data)
     return "loading"
 /*    const [token, setToken] = useState('');
 

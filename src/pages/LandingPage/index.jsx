@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import getAllPosts from '../../APIv1/get/allPosts';
-import getPostData from '../../APIv1/get/post';
+// import getAllPosts from '../../APIv1/get/allPosts';
 import {HomeComponent} from '../../components/'
 
-function PostContent(props) {
-    console.log(props.testing)
-    return <h1>Hello, {props.name}</h1>;
-}
+// function PostContent(props) {
+//     console.log(props.testing)
+//     return <h1>Hello, {props.name}</h1>;
+// }
 
 export function LandingPage(props) {
-    const [ posts, setPosts ] = useState([])
+    // const [ posts, setPosts ] = useState([])
 
-    useEffect(() => {
-        async function fetchData() {
-            const request = await getAllPosts();
-            //console.log(request)
-            setPosts(request)
-            return request
-        }
-        fetchData()
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const request = await getAllPosts();
+    //         //console.log(request)
+    //         setPosts(request)
+    //         return request
+    //     }
+    //     fetchData()
 
-    }, [] )
+    // }, [] )
     
-    console.log(posts)
+    // console.log(posts)
 
-    return (<HomeComponent posts={posts}/>)
+    // return (<HomeComponent posts={posts}/>)
 
    // console.log("hyelo")
     //const data = await getAllPosts()

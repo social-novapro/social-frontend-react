@@ -12,4 +12,4 @@ async function getAllPosts() {
     return allPosts.data
 }
 
-export default getAllPosts
+// export default getAllPosts
